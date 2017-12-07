@@ -4,8 +4,12 @@
   <link rel="stylesheet" href="css/onsenui.css">
   <link rel="stylesheet" href="css/onsen-css-components.min.css">
   <script src="js/onsenui.min.js"></script>
+
   <script src="js/need.js"></script>
+  <script src="js/echarts.min.js"></script>
+
   <meta charset="utf-8">
+
 </head>
 <body>
 
@@ -42,25 +46,107 @@
     </ons-toolbar>
     <!--TODO: 菜单设置百分比，闫相元-->
     <div style="height: 97%">
-    <div style="text-align: left; font-size: 15px; color:white; height:30%; background-color: #1e88e5; margin-top:1%;margin-bottom: 0%">
-      <div style="margin:1% 2%">
-        您的宝宝此刻状态
+      <div style="text-align: left; font-size: 15px; color:white; height:30%; background-color: #1e88e5; ">
+        <div style="margin-left:2%">您的宝宝此刻状态</div>
       </div>
+      <div  style="text-align: left; font-size: 15px; background-color:inherit; height:50%;margin-top:0.3%">
+        <div style="color: #1e88e5;margin-left: 2%; height: 20%">今日情绪</div>
+        <!--<div style="height:100%;width:100%;text-align:center; margin-top:-10%">-->
+        <div  id="chart" style="height: 90%;width: 98%;text-align:center;position: relative; overflow: hidden; cursor: default;margin-top: -10%;margin-left:2%;margin-right: auto"></div> <!--TODO: style，闫相元-->
+        <!--</div>-->
+        <script>
+
+          var myChart = echarts.init(document.getElementById('chart'));
+
+          function randomData() {
+            now = new Date(+now + oneDay);
+            value = value + Math.random() * 21 - 10;
+            return {
+              name: now.toString(),
+              value: [
+                [now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/'),
+                Math.round(value)
+              ]
+            }
+          }
+
+          var data = [];
+          var now = +new Date(1997, 9, 3);
+          var oneDay = 24 * 3600 * 1000;
+          var value = Math.random() * 1000;
+          for (var i = 0; i < 1000; i++) {
+            data.push(randomData());
+          }
+
+          option = {
+            tooltip: {
+              trigger: 'axis',
+              formatter: function (params) {
+                params = params[0];
+                var date = new Date(params.name);
+                return date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear() + ' : ' + params.value[1];
+              },
+              axisPointer: {
+                animation: false
+              }
+            },
+            xAxis: {
+              type: 'time',
+              splitLine: {
+                show: false
+              }
+            },
+            yAxis: {
+              type: 'value',
+              boundaryGap: [0, '100%'],
+              splitLine: {
+                show: false
+              }
+            },
+            series: [{
+              name: '模拟数据',
+              type: 'line',
+              showSymbol: false,
+              hoverAnimation: false,
+              itemStyle:{
+                normal:{
+                  lineStyle:{
+                    color:'#1e88e5'
+                  }
+                }
+              },
+              data: data
+            }]
+          };
+
+          setInterval(function () {
+
+            for (var i = 0; i < 5; i++) {
+              data.shift();
+              data.push(randomData());
+            }
+
+            myChart.setOption({
+              series: [{
+                data: data
+              }]
+            });
+          }, 1000);
+
+          myChart.setOption(option);
+        </script>
+
+      </div>
+      <div style="text-align: left; font-size: 15px; background-color:inherit; height:20%;margin-top:0.3%;border-top-color: #6d6d72;border-top-width: "><!--TODO: style，闫相元 2017-12-06 fix this bug-->
+        <ons-button style="margin-top:10%;margin-left:6%;margin-right:8%;float:left">主页</ons-button>
+        <ons-button style="margin-top:10%;float:left">开启监控</ons-button>
+        <ons-button style="margin-top:10%;margin-left: 8%;float:left">发送音频</ons-button>
+
     </div>
-    <div  style="text-align: left; font-size: 15px; background-color:darkblue; height:50%">
-      <div style="color:white;margin:0.5% 2%">今日情绪</div>
     </div>
-    <div style="background-color:deepskyblue;height:20%;margin:1% 0%">
-      <div style="background-color: deepskyblue;margin-top:3%;margin-bottom:3%;margin-left:8%;height: 74%;width: 25%;float: left">
-        <ons-button style="margin-top:25%;margin-left:13%;margin-right:8%">主页</ons-button>
-      </div>
-      <div style="background-color: deepskyblue;margin-top: 3%;height: 74%;width: 25%;float: left">
-        <ons-button style="margin-top:25%">开启监控</ons-button>
-      </div>
-      <div style="background-color: deepskyblue;margin-top:3%;margin-bottom:3%;margin-right: 3%;height:74%;width: 25%;float: left">
-        <ons-button style="margin-top:25%;margin-left: 20%">发送音频</ons-button>
-      </div>
-    </div>
+
+
+
   </div>
   </ons-page>
 
