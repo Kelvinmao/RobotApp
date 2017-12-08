@@ -6,15 +6,13 @@
   <script src="js/onsenui.min.js"></script>
   <script src="js/need.js"></script>
   <meta charset="utf-8">
-  <style>
-
-    .centertwo img {
-      width: 30%;
-      margin-left: 10%;
-      padding-top: auto;
-      padding-bottom: auto;
-    }
-  </style>
+  <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+  <link rel="stylesheet" href="css/info.css">
+  <script>
+    $(document).ready(function () {/*TODO 修改power*/
+      document.getElementById("power").innerHTML = '123';
+    })
+  </script>
 </head>
 <body>
 
@@ -89,7 +87,13 @@
     </ons-toolbar>
     <div style="height: 97%">
       <div class="centerfather" style=" font-size: 30px; color: #fff; height:40%; background-color: #1e88e5;">
-        <div class="centertwo"><img src="img/robot.png" width="100px"></div>
+        <div class="centerl"><img src="img/robot.png" width="100px"></div>
+        <div class="centerr">
+          NAME：ROBOT<br>
+          CODE：BUPTSTU_1111<br><br><br><br>
+          POWER:
+          <div class="power" id="power">hs</div>
+        </div>
       </div>
       <div  style="text-align: center; font-size: 30px; color: #fff; background-color:#1F2833; height:60% ">
         <iframe src="send.html" frameborder="0"  height="100%" width="100%" name="myframe"></iframe>
