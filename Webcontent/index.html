@@ -9,7 +9,17 @@
   <script src="js/echarts.min.js"></script>
 
   <meta charset="utf-8">
+<<<<<<< HEAD
 
+=======
+  <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+  <link rel="stylesheet" href="css/info.css">
+  <script>
+    $(document).ready(function () {/*TODO 修改power*/
+      document.getElementById("power").innerHTML = '123';
+    })
+  </script>
+>>>>>>> 9d13e175da947e54784c621ac9247db229076f28
 </head>
 <body>
 
@@ -18,13 +28,13 @@
     <ons-page>
       <ons-list>
         <ons-list-item onclick="fn.load('home.html')" tappable>
-          Home
+          宝宝状态
         </ons-list-item>
         <ons-list-item onclick="fn.load('settings.html')" tappable>
-          Settings
+          机器状态
         </ons-list-item>
         <ons-list-item onclick="fn.load('about.html')" tappable>
-          About
+          联系我们
         </ons-list-item>
       </ons-list>
     </ons-page>
@@ -41,18 +51,22 @@
         </ons-toolbar-button>
       </div>
       <div class="center">
-        Main
       </div>
     </ons-toolbar>
     <!--TODO: 菜单设置百分比，闫相元-->
     <div style="height: 97%">
-      <div style="text-align: left; font-size: 15px; color:white; height:30%; background-color: #1e88e5; ">
-        <div style="margin-left:2%">您的宝宝此刻状态</div>
+      <div style="text-align: left; color:white; height:30%; background-color: #1e88e5; ">
+        <div style="margin-left:2%;font-size: 20px">您的宝宝此刻状态</div>
+        <div style="margin-left:2%;margin-top:3%;font-size: 17px">情绪值：100</div>
+        <div style="margin-left:2%;font-size: 17px">情绪波动：平稳</div>
+        <div style="margin-left:2%;font-size: 17px">活动量：80</div>
+        <div style="margin-left:2%;font-size: 17px">最大行动路程：15.6m</div>
+        <div style="margin-left:2%;font-size: 17px">过去半小时情绪平均值：80</div>
       </div>
-      <div  style="text-align: left; font-size: 15px; background-color:inherit; height:50%;margin-top:0.3%">
+      <div  style="text-align: left; font-size: 20px; background-color:inherit; height:50%;margin-top:0.3%">
         <div style="color: #1e88e5;margin-left: 2%; height: 20%">今日情绪</div>
         <!--<div style="height:100%;width:100%;text-align:center; margin-top:-10%">-->
-        <div  id="chart" style="height: 90%;width: 98%;text-align:center;position: relative; overflow: hidden; cursor: default;margin-top: -10%;margin-left:2%;margin-right: auto"></div> <!--TODO: style，闫相元-->
+        <div  id="chart" style="height: 100%;width: 98%;text-align:center;position: relative; overflow: hidden; cursor: default;margin-top: -15%;margin-left:2%;margin-right: auto"></div> <!--TODO: style，闫相元-->
         <!--</div>-->
         <script>
 
@@ -137,10 +151,13 @@
         </script>
 
       </div>
-      <div style="text-align: left; font-size: 15px; background-color:inherit; height:20%;margin-top:0.3%;border-top-color: #6d6d72;border-top-width: "><!--TODO: style，闫相元 2017-12-06 fix this bug-->
-        <ons-button style="margin-top:10%;margin-left:6%;margin-right:8%;float:left">主页</ons-button>
-        <ons-button style="margin-top:10%;float:left">开启监控</ons-button>
-        <ons-button style="margin-top:10%;margin-left: 8%;float:left">发送音频</ons-button>
+      <hr></hr>
+      <div style="text-align: left; font-size: 15px; background-color:inherit; height:20%;margin-top:0.3%"><!--TODO: style，闫相元 2017-12-06 fix this bug-->
+        <div style="margin-left:12%">
+          <ons-button style="margin-top:10%;margin-right:8%;float:left">主页</ons-button>
+          <ons-button style="margin-top:10%;float:left">开启监控</ons-button>
+          <ons-button style="margin-top:10%;margin-left: 8%;float:left">发送音频</ons-button>
+        </div>
 
     </div>
     </div>
@@ -165,9 +182,13 @@
       </div>
     </ons-toolbar>
     <div style="height: 97%">
-      <div style="text-align: center; font-size: 30px; color: #fff; height:40%; background-color: #1e88e5;">
-        <div>
-          blue<img src="" >
+      <div class="centerfather" style=" font-size: 30px; color: #fff; height:40%; background-color: #1e88e5;">
+        <div class="centerl"><img src="img/robot.png" width="100px"></div>
+        <div class="centerr">
+          NAME：ROBOT<br>
+          CODE：BUPTSTU_1111<br><br><br><br>
+          POWER:
+          <div class="power" id="power">hs</div>
         </div>
       </div>
       <div  style="text-align: center; font-size: 30px; color: #fff; background-color:#1F2833; height:60% ">

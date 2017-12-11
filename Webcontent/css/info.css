@@ -1,0 +1,21 @@
+.centerl img {
+    width: 30%;
+    margin-left: 10%;
+    margin-top: 10%;
+    float: left;
+}
+.centerr{
+    float: left;
+    width: 50%;
+    margin-top: 10%;
+    background:#1e88e5;
+    font-size: medium;
+    color: #000;
+    padding-left: 1%;
+}
+.power{
+    background: red;
+    text-align: right;
+    font-size: x-large;
+    padding-right: 20%;
+}

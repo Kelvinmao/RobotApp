@@ -46,5 +46,9 @@ ons.ready(function() {
 //     {name:"r",price:09},
 //     {name:"q",price:19},
 // ]
+//document.write("<ons-list-item>sdvsvs</ons-list-item>")
 // console.log(mycars[0].name)
- document.getElementsByTagName('ons-list-item')[0].innerHTML='123'
+// document.getElementsByTagName('ons-list-item')[0].innerHTML='123'
+document.getElementById("item1").innerHTML = '123';
+//document.getElementsByTagName('ons-list-item')[0].innerHTML='123';
+

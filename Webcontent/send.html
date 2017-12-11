@@ -7,27 +7,37 @@
     <link rel="stylesheet" href="css/onsen-css-components.min.css">
     <script src="js/onsenui.min.js"></script>
     <script src="js/need.js"></script>
+    <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
 
 </head>
 <body>
 <ons-page>
-    <ons-toolbar>
-        <div class="center">Lists</div>
-    </ons-toolbar>
+
 
     <ons-pull-hook id="pull-hook">
         Pull to refresh
     </ons-pull-hook>
 
     <ons-list>
-        <ons-list-item>Item 1</ons-list-item>
-        <ons-list-item>Item 2</ons-list-item>
-        <ons-list-item>Item 3</ons-list-item>
-        <ons-list-item>Item 1</ons-list-item>
-        <ons-list-item>Item 2</ons-list-item>
-        <ons-list-item>Item 3</ons-list-item>
+        <ons-list-item class="list">item1</ons-list-item>
+        <ons-list-item class="list">item1</ons-list-item>
+        <ons-list-item class="list">item1</ons-list-item>
+        <ons-list-item class="list">item1</ons-list-item>
+        <ons-list-item class="list">item5</ons-list-item>
 
     </ons-list>
+    <!--<div class="list">1</div>-->
+    <!--<div class="list">1</div>-->
+    <!--<div class="list">1</div>-->
+    <!--<div class="list">1</div>-->
+    <script>
+        var books=[1,2,3,4,5]
+        $(".list").append(function (i=1) {
+            return"<b>shu</b>"+books[i];
+        })
+    </script>
+
 </ons-page>
+
 </body>
 </html>
